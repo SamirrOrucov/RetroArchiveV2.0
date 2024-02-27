@@ -1,0 +1,45 @@
+.adminUsers {
+    max-width: 80%;
+    margin: 0 auto;
+    &_container {
+      text-align: right;
+      .addButton {
+        width: 150px;
+        height: 50px;
+        background-color: black;
+        color: white;
+        margin: 20px 151px 0 0  ;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+    }
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 1000px;
+    margin: 50px auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    height: 10px;
+  }
+  
+  tbody:nth-child(even) {
+    background-color: #dddddd;
+  }
+  tr{
+      &:nth-child(even) {
+          background-color: #ffffff;
+        }
+  }

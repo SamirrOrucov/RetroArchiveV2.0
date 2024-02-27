@@ -1,0 +1,114 @@
+.register {
+  max-width: 100vw;
+  &_container {
+    max-width: 80%;
+    display: flex;
+    margin: 80px auto;
+    .left {
+      background-color: black;
+      padding: 60px;
+      width: 55%;
+      height: 80vh;
+      position: relative;
+      overflow: hidden;
+      h2 {
+        color: white;
+        font-size: 90px;
+      }
+      img {
+        border-radius: 18px;
+        position: absolute;
+        bottom: 40px;
+        right: -50px;
+        rotate: 340deg;
+        width: 600px;
+        object-fit: contain;
+      }
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        .field {
+          display: flex;
+          flex-direction: column;
+        }
+        .password {
+          width: 450px;
+          height: 50px;
+          border: 1px solid lightgray;
+          border-radius: 12px;
+          i {
+            cursor: pointer;
+          }
+          input {
+            width: 400px;
+            border: none;
+            height: 48px;
+          }
+        }
+
+        p {
+          font-size: 28px;
+          font-weight: 700;
+        }
+        input {
+          width: 450px;
+          height: 50px;
+          padding-left: 10px;
+          font-size: 18px;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          border-radius: 12px;
+          outline: none;
+          border: 1px solid lightgray;
+        }
+        button {
+          padding: 15px;
+          background-color: black;
+          color: white;
+          font-size: 18px;
+          border: none;
+          border-radius: 12px;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.815);
+          }
+        }
+
+        .addFile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          letter-spacing: 1px;
+          cursor: pointer;
+          i {
+            font-size: 25px;
+            margin-right: 20px;
+          }
+        }
+      }
+      a {
+        margin-top: 20px;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.file-input-container {
+  position: relative;
+
+  .imageFile {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}

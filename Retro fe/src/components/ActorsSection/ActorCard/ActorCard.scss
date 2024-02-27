@@ -1,0 +1,181 @@
+.actorCard {
+  width: 50%;
+  border: 1px solid black;
+  height: 170px;
+  display: flex;
+  align-items: center;
+
+  &_container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    .image {
+      width: 130px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .name {
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .location {
+        p {
+          span {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .actorCard {
+    width: 50%;
+    border: 1px solid black;
+    height: 170px;
+    display: flex;
+    align-items: center;
+
+    &_container {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      .image {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .name {
+          font-size: 12px;
+          font-weight: 700;
+        }
+        .location {
+          p {
+            font-size: 11px;
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .actorCard {
+    width: 50%;
+    border: 1px solid black;
+    height: 170px;
+    display: flex;
+    align-items: center;
+
+    &_container {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      .image {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .name {
+          font-size: 17px;
+          font-weight: 700;
+        }
+        .location {
+          p {
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .actorCard {
+    width: 50%;
+    border: 1px solid black;
+    height: 170px;
+    display: flex;
+    align-items: center;
+
+    &_container {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      .image {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .name {
+          font-size: 19px;
+          font-weight: 700;
+        }
+        .location {
+          p {
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
