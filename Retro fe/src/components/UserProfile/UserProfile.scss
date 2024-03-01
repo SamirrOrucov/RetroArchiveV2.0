@@ -47,3 +47,52 @@
 .showProfile {
   display: block;
 }
+@media (max-width: 901.98px) {
+  .userProfile {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 0 0 12px 12px;
+
+    position: absolute;
+    top: 59px;
+    right: 170px;
+    background-color: white;
+    z-index: 2;
+
+    &_container {
+      display: flex;
+      flex-direction: column;
+      &_top {
+        display: flex;
+        padding: 10px 25px 10px 10px;
+        align-items: center;
+        justify-content: space-between;
+        .profileName {
+          font-size: 17px;
+          letter-spacing: 3px;
+        }
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+        }
+      }
+      &_down {
+        margin-top: 27px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2px;
+        a {
+          border-radius: 12px;
+          padding: 20px 0 20px 8px;
+          font-size: 18px;
+          &:hover {
+            background-color: lightgray;
+          }
+        }
+      }
+    }
+  }
+}

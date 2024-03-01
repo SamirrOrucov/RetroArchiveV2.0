@@ -20,7 +20,7 @@ function Footer() {
             <NavLink to={"/actors"}>Actors <i className="fa-solid fa-arrow-up-right-from-square"></i> </NavLink>
 
           </div>
-          <p>Mədəniyyət Nazirliyi@2024</p>
+          <p>Azərbaycan Retro Filmləri @2024</p>
       </div>
     </div>
   )

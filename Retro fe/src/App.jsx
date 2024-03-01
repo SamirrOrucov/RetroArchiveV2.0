@@ -23,7 +23,6 @@ import AddActors from "./pages/Admin/AdminActors/AddActors/AddActors";
 import EditActors from "./pages/Admin/AdminActors/EditActors/EditActors";
 import AdminComments from "./pages/Admin/AdminComments/AdminComments";
 import AdminCommentsDetail from "./pages/Admin/AdminComments/AdminCommentsDetail/AdminCommentsDetail";
-// import AdminRoute from "./routes/AdminRoute/AdminRoute"; // Import AdminRoute
 
 function App() {
   return (
