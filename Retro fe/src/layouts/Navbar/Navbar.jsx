@@ -26,7 +26,7 @@ function Navbar() {
     <div className={`navbar  ${stickyNav ? "fixed" : ""}`}>
       <div className="navbar_container">
         <div className="logo">
-          <Link to={"/"}>AZEFILMS</Link>
+          <Link to={"/"}>Retro Archive</Link>
         </div>
         <div className="links">
           <NavLink to={"/films"}>Films</NavLink>
