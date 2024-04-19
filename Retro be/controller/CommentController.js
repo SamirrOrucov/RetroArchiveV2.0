@@ -78,10 +78,12 @@ export const updateComment = async (req, res) => {
 
 export const deleteComment = async (req, res) => {
   try {
-    const { commentId } = req.params;
-    const deleteComment = await CommentModel.findByIdAndDelete(commentId);
+    const { id } = req.params;
+    const deleteComment2 = await CommentModel.findByIdAndDelete(id);
+    await FilmModel.updateMany({ comments: id }, { $pull: { comments: id } });
+    
     res.send("Comment deleted successfully");
-  } catch (error) {
+  } catch (error) { 
     res.status(500).send(error.message);
   }
 };

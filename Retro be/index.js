@@ -16,8 +16,8 @@ app.use("/actor", actorRoute);
 app.use("/user", userRouter);
 app.use("/auth", authRoute);
 app.use("/comment", commentRoute);
-
 app.use("/static", express.static("public"));
+app.use("/static", express.static("public/Audio"));
 
 mongoose
   .connect(process.env.DB_KEY)

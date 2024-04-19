@@ -31,6 +31,8 @@ export const postFilm = async (req, res) => {
       date,
       category,
     } = req.body;
+    const audioStorage = req.files?.audioStorage;
+    const videoStorage = req.files?.videoStorage;
     const newFilm = new FilmModel({
       image,
       title,
@@ -41,6 +43,14 @@ export const postFilm = async (req, res) => {
       duration,
       date,
       category,
+      audioFile: audioStorage
+      ? "http://localhost:3003/static/" +
+        (audioStorage[0] ? audioStorage[0].filename : null)
+      : null,
+      videoFile: videoStorage
+      ? "http://localhost:3003/static/" +
+        (videoStorage[0] ? videoStorage[0].filename : null)
+      : null,
     });
     await newFilm.save();
 
@@ -52,6 +62,8 @@ export const postFilm = async (req, res) => {
 export const updateFilm = async (req, res) => {
   try {
     const { id } = req.params;
+    const audioStorage = req.files?.audioStorage;
+    const videoStorage = req.files?.videoStorage;
     const {
       image,
       title,
@@ -74,6 +86,14 @@ export const updateFilm = async (req, res) => {
       duration,
       date,
       category,
+      audioFile: audioStorage
+      ? "http://localhost:3003/static/" +
+        (audioStorage[0] ? audioStorage[0].filename : null)
+      : FilmModel.audioFile,
+      videoFile: videoStorage
+      ? "http://localhost:3003/static/" +
+        (videoStorage[0] ? videoStorage[0].filename : null)
+      : FilmModel.videoFile,
     });
     res.send("Film Updated!");
   } catch (error) {
