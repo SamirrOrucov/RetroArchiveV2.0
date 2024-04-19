@@ -56,7 +56,7 @@ function Register() {
           <div className="left">
             <h2>FILM & AZE</h2>
             <img
-              src="https://s3-alpha-sig.figma.com/img/afaf/d0c9/86b67c7c0e9d40244e9d09e8cf3b92d6?Expires=1708905600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=d~PakU2I9A3DzDYy5uNFe65mjwxBn3am2fvV99LEIxSCF6nYVWb-yoeZar5hznG9q5eX99mn-ncc9Db4wwdxWoUn3F9vAKyT8p~XouSV6AYnioheh5KQi2RLN3Vt-d1p4lqoy~XMEaNBghTmP3bg0En-JU1gi6pRkaJEeUaurTyYhOhxxLckJwa49b~xa5vABram9X0PL85p5-JyrRVHcZ9J01k4yYKBnbKGDyoAnkdXDk9x5ZD0CIk4-sSE3HGK4gokFcHPSwumo5oOJQl9L5iPxewW-BGgLOKVB5Kl5SbqixZ5MlP-1Z6jxkuUwwuFVCjloL4U1awIIP0968PRLg__"
+              src="https://azkataloq.org/files/preview/1280x1010/11628358005vtswdw9zhxhmpnbd3v3esn4m68r8yc7b6lqa4bil6tjn9p0pxdxgzsxkagbkez3ynqz1ci3wjiucxny9xa0po316coqwfujrweul.jpg"
               alt=""
             />
           </div>

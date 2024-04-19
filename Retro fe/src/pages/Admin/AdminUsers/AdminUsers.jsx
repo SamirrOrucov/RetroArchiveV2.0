@@ -3,12 +3,24 @@ import { Link } from "react-router-dom";
 import"./AdminUser.scss"
 function AdminUsers() {
   const [userData, setUserData] = useState([]);
+  const [userId, setUserId] = useState([]);
 
   async function fetchUsers() {
     const response = await fetch("http://localhost:3003/user");
     const data = await response.json();
     setUserData(data);
   }
+  // async function updateUser() {
+  //   const response = await fetch("http://localhost:3003/user/"+userId, {
+  //     method: "PUT",
+  //     body: JSON.stringify({
+  //       role:
+  //     }),
+  //     headers: { "Content-Type": "application/json" },
+  //   });
+  //   const data = await response.json();
+  //   setUserData(data);
+  // }
 
   useEffect(() => {
     fetchUsers();

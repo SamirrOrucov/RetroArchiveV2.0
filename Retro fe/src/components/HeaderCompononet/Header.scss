@@ -5,9 +5,22 @@
     display: flex;
     margin: 0 auto;
     flex-direction: column;
-    h6 {
-      font-size: 200px;
-      padding-left: 15%;
+
+    .upperText {
+      width: 100%;
+      // text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+      .svgIcon{
+        width: 100px !important;
+        height: 100px;
+      }
+      h6 {
+        font-size: 150px;
+        font-weight: 900;
+      }
     }
     .slider {
       background-color: black;
@@ -68,9 +81,14 @@
   .header {
     &_container {
       max-width: 80%;
-      h6 {
-        font-size: 40px;
-        padding-left: 5%;
+    
+      .upperText {
+        width: 100%;
+        text-align: center;
+        h6 {
+          font-size: 30px;
+          font-weight: 900;
+        }
       }
       .slider {
         background-color: black;
@@ -99,9 +117,9 @@
             flex-direction: column;
             .title {
               margin-top: 10px;
-              font-size: 50px;
+              font-size: 40px;
               width: 100%;
-              text-align: center;
+              text-align: start;
 
               h5 {
                 line-height: 50px;
@@ -139,9 +157,14 @@
   .header {
     &_container {
       max-width: 80%;
-      h6 {
-        font-size: 80px;
-        padding-left: 10%;
+  
+      .upperText {
+        width: 100%;
+        text-align: center;
+        h6 {
+          font-size: 50px;
+          font-weight: 900;
+        }
       }
       .slider {
         background-color: black;
@@ -202,9 +225,13 @@
   .header {
     &_container {
       max-width: 80%;
-      h6 {
-        font-size: 100px;
-        padding-left: 10%;
+      .upperText {
+        width: 100%;
+        text-align: center;
+        h6 {
+          font-size: 70px;
+          font-weight: 900;
+        }
       }
       .slider {
         background-color: black;
@@ -265,9 +292,79 @@
   .header {
     &_container {
       max-width: 80%;
-      h6 {
-        font-size: 120px;
-        padding-left: 10%;
+      .upperText {
+        width: 100%;
+        text-align: center;
+        h6 {
+          font-size: 90px;
+          font-weight: 900;
+        }
+      }
+      .slider {
+        background-color: black;
+        color: white;
+        cursor: default;
+        padding: 10px;
+        a {
+          font-size: 13px;
+          font-weight: 100;
+        }
+        span {
+          padding-left: 60px;
+        }
+      }
+      .bottomPart {
+        max-width: 100vw;
+        &_container {
+          max-width: 80%;
+          .top {
+            max-width: 100%;
+            gap: 60px;
+            .title {
+              font-size: 100px;
+              width: 45%;
+              h5 {
+                line-height: 100px;
+              }
+            }
+            .desc {
+              p {
+                width: 145%;
+              }
+              font-size: 18px;
+              line-height: 35px;
+              margin: 20px 0 0 20px;
+
+              letter-spacing: 2px;
+            }
+          }
+          .image {
+            margin-top: 20px;
+            max-width: 1450px;
+            min-height: 400px;
+
+            img {
+              width: 125%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1200px) and (max-width: 1577.98px) {
+  .header {
+    &_container {
+      max-width: 80%;
+      .upperText {
+        width: 100%;
+        text-align: center;
+        h6 {
+          font-size: 115px;
+          font-weight: 900;
+        }
       }
       .slider {
         background-color: black;

@@ -22,9 +22,9 @@ function AdminCommentsDetail() {
   }, []);
   async function handleDelete(commentId) {
     await fetch("http://localhost:3003/comment/"+commentId , {
-      method: "DELETE",
-     
+      method: "DELETE"
     });
+    console.log(commentId);
     await fetchComments();
   }
   return (

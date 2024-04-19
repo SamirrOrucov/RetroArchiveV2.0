@@ -4,6 +4,7 @@ import OldFilmsCard from "./OldFilmsCard/OldFilmsCard";
 
 function OldFilmsComponents() {
   const [dbData, setDbData] = useState([]);
+  const [ratingsData, setRatingsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filmsPerPage] = useState(6);
   const [category, setCategory] = useState("All");
@@ -15,13 +16,13 @@ function OldFilmsComponents() {
     setDbData(data);
   }
 
+  function handleDataFromChild(data) {
+    setRatingsData(data);
+    console.log(data);
+  }
   useEffect(() => {
     fetchData();
   }, []);
-
-
-
-
   const indexOfLastFilm = currentPage * filmsPerPage;
   const indexOfFirstFilm = indexOfLastFilm - filmsPerPage;
 
@@ -49,15 +50,24 @@ function OldFilmsComponents() {
     setCurrentPage(1);
   };
 
-  const handleSortChange = (sort) => {
-    if (sortBy === sort) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  const handleSortChange = (sort, order) => {
+    if (ratingsData === sort) {
+      setSortOrder(order === "asc" ? "desc" : "asc");
     } else {
       setSortBy(sort);
       setSortOrder("asc");
     }
+    const sortedFilms = ratingsData
+      ? filteredProducts.sort((a, b) => {
+          if (order === "asc") {
+            return a[ratingsData] > b[ratingsData] ? 1 : -1;
+          } else {
+            return a[ratingsData] < b[ratingsData] ? 1 : -1;
+          }
+        })
+      : filteredProducts;
+    setSortedData(sortedFilms);
   };
-
   return (
     <div className="oldFilms">
       <div className="oldFilms_container">
@@ -67,6 +77,14 @@ function OldFilmsComponents() {
         <div className="oldFilms_container_bottom">
           <div className="categorySide">
             <p>CATEGORIES</p>
+            <div className="sortOrder">
+              <button onClick={() => handleSortChange(ratingsData, "asc")}>
+                Ascending
+              </button>
+              <button onClick={() => handleSortChange(ratingsData, "desc")}>
+                Descending
+              </button>
+            </div>
             <div className="types">
               <button onClick={() => handleCategoryClick("All")}>ALL</button>
               <button onClick={() => handleCategoryClick("dram")}>DRAMA</button>
@@ -79,6 +97,7 @@ function OldFilmsComponents() {
           <div className="cards">
             {currentFilms.map((item, index) => (
               <OldFilmsCard
+                sendDataToParent={handleDataFromChild}
                 key={index}
                 year={item.date}
                 category={item.category}
@@ -87,6 +106,7 @@ function OldFilmsComponents() {
                 desc={item.desc}
                 duration={item.duration}
                 item={item}
+                rating={item.rating}
               />
             ))}
           </div>

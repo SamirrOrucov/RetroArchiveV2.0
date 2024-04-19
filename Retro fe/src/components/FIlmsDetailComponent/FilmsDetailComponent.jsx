@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./FilmsDetailComponent.scss";
 import { FaStar } from "react-icons/fa";
@@ -8,34 +8,34 @@ function FilmsDetailComponent() {
   const { id } = useParams();
   const [dbData, setDbData] = useState([]);
   const [rating, setRating] = useState(null);
+  const [totalRating, setTotalRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [message, setMessage] = useState("");
-  const { decodedToken,tokenn } = useContext(UserTokenContext);
+  const { decodedToken, tokenn } = useContext(UserTokenContext);
   const [filmComments, setfilmComments] = useState([]);
-  const navigate =useNavigate()
+  const navigate = useNavigate();
+  const iframeRef = useRef(null);
+
   async function postComment() {
     try {
       if (decodedToken) {
         const response = await fetch("http://localhost:3003/comment/", {
-        method: "POST",
-        body: JSON.stringify({
-          userId: decodedToken.userId,
-          filmId: id,
-          content: message,
-          rating: rating,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      await fetchComments();
-   
-        
-      }else{
-        navigate("/login")
+          method: "POST",
+          body: JSON.stringify({
+            userId: decodedToken.userId,
+            filmId: id,
+            content: message,
+            rating: rating,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        await fetchComments();
+      } else {
+        navigate("/login");
       }
     } catch (error) {
-     
       console.error("Error fetching data:", error);
     }
   }
@@ -65,16 +65,79 @@ function FilmsDetailComponent() {
     }
     fetchData();
   }, []);
+  async function fetchRating() {
+    try {
+      const response = await fetch("http://localhost:3003/comment/avarage", {
+        method: "POST",
+        body: JSON.stringify({
+          filmId: id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (data && data.length > 0) {
+        const roundedRating = data[0].averageRating;
+        const roundedRate = parseFloat(roundedRating?.toFixed(1));
+        setTotalRating(roundedRate);
+      }
+    } catch (error) {
+      console.error("Error fetching rating:", error);
+    }
+  }
+  useEffect(() => {
+    fetchRating();
+  }, []);
+
+  const audioRef = useRef(null);
+
+  const handlePlayPause = () => {
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  };
+
   return (
     <div className="filmsDetailComponent">
       <div className="filmsDetailComponent_container">
         <div className="top">
+          <div className="rate">
+            <p>
+              <div className="stars">
+                {[...Array(5)].map((star, i) => {
+                  const ratingValue = i + 1;
+                  return (
+                    <label key={i}>
+                      <input
+                        type="radio"
+                        name="rating"
+                        id=""
+                        onClick={() => setRating(ratingValue)}
+                        value={totalRating}
+                      />
+                      <FaStar
+                        className="str"
+                        color={
+                          ratingValue <= (hover || totalRating)
+                            ? "ffc107"
+                            : "e4e5e9"
+                        }
+                      />
+                    </label>
+                  );
+                })}
+              </div>
+            </p>
+          </div>
           <div className="top_up">
             <div className="title">
               <h5>{dbData.title}</h5>
             </div>
             <div className="desc">
-              <p>{dbData.desc?.slice(0, 290)}..</p>
+              <p>{dbData.desc?.slice(0, 190)}..</p>
             </div>
           </div>
           <div className="top_down">
@@ -100,6 +163,7 @@ function FilmsDetailComponent() {
         <div className="image">
           <img src={dbData.image} alt="" />
         </div>
+
         <div className="allDetail">
           <div className="left">
             <div className="director">
@@ -114,8 +178,13 @@ function FilmsDetailComponent() {
           </div>
           <div className="right">
             <p>{dbData.desc}</p>
-          </div>
+          </div> 
         </div>
+        {
+          dbData.audioFile?
+        <div className="videoSection">
+          <video src={dbData.videoFile} controls style={{width:"915px"}}></video>
+        </div>:null}
         <div className="feedbackSection">
           <p className="feedback">
             FEEDBACK <i className="fa-solid fa-arrow-right"></i>
@@ -158,18 +227,36 @@ function FilmsDetailComponent() {
             <button onClick={() => postComment()}>SUBMIT</button>
           </div>
           <div className="publishedComments">
-            {filmComments
-              .map((item) => (
-                <div className="userComment" key={item._id}>
-                  <div className="userSide">
-                    <img src={item.userId.image} alt="" />
-                    <p className="userName">{item.userId.nickName}</p>
-                  </div>
-                  <p className="comment">{item.content}</p>
+            {filmComments.map((item) => (
+              <div className="userComment" key={item._id}>
+                <div className="userSide">
+                  <img src={item.userId?.image} alt="" />
+                  <p className="userName">{item.userId?.nickName}</p>
                 </div>
-              ))}
+                <p className="comment">{item.content}</p>
+              </div>
+            ))}
           </div>
         </div>
+       {
+          dbData.audioFile?<div className="audioButton" >
+          <iframe
+            name="newframe"
+            frameborder="0"
+            height="53"
+            width="70%"
+            style={{
+              borderRadius: "30px",
+              boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
+            }}
+            ref={audioRef}
+            src={dbData.audioFile}
+            allow="autoplay"
+            className="audio"
+          />
+        </div>:null
+        }
+        
       </div>
     </div>
   );

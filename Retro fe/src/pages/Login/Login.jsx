@@ -39,7 +39,7 @@ function Login() {
       <div className="login_container">
        <div className="left">
         <h2>FILM & AZE</h2>
-        <img src="https://s3-alpha-sig.figma.com/img/3fd5/4f33/6eba19c8cde4cf3ac884cb3e7a6f3671?Expires=1708905600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=il7P289vSeN6JRrgP0EDuWHgivpMU6FjxDP0ePV6z2-SE4mYGV7Hbkrla6ug5-wWba9lb5vdmhzOnU2yfRVA~i96jmCE66Pz1eO9ywvP8bfNsvTMlJEEQ71GnBwmgBVPEXEd4plPrJ1uKPqeVrAgG3MQsc-~Q9YOX53y~U0l4Ja~SWthfaTitWhESO4w4~elryQzKihVtcx8S1TWiBvR2D-ee56bfylrt3X~cl1jigRPlZNtqABXQ0aTP6xhj6EW6jrSnMfJwhizro-8hkldCAkpqxTNpdAhVpyIevxaN32KTzcLUDg6oTzm6Z0P0WxaipK4J4fYCZKa~wdyDeF2jQ__" alt="" />
+        <img src="https://m.media-amazon.com/images/M/MV5BM2E5NWM0ZDktNDdkNS00M2RmLWI1OGItOGY3ODQwZWYzZjA3XkEyXkFqcGdeQXVyNTE1MDE2MzY@._V1_.jpg" alt="" />
        </div>
        <div className="right">
        <Formik

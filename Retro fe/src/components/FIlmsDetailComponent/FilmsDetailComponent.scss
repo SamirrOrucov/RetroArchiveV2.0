@@ -9,17 +9,39 @@
       max-width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 100px;
+      // text-align: end;
+      .rate {
+        max-width: 100%;
+        font-size: 23px;
+        margin-top: 4 0px;
+        display: flex;
+        justify-content: end;
+        gap: 5px;
+        .stars {
+          display: flex;
+          gap: 3px;
+        }
+        input[type="radio"] {
+          display: none;
+        }
+        i {
+          color: orange;
+          padding-right: 5px;
+        }
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
       &_up {
         display: flex;
         align-items: center;
-        gap: 100px;
         justify-content: space-between;
+        margin-bottom: 40px;
+        max-width: 90%;
+        gap: 10px;
         .title {
-          font-size: 100px;
-          width: 45%;
+          font-size: 90px;
           h5 {
-            line-height: 130px;
+            font-weight: 900;
+            line-height: 90px;
           }
         }
         .desc {
@@ -56,12 +78,11 @@
       }
     }
     .image {
-      margin-top: 20px;
-      max-width: 1450px;
-      min-height: 800px;
+      margin: 20px auto;
+      max-width: 60%;
 
       img {
-        width: 105%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
       }
@@ -106,6 +127,18 @@
           }
         }
       }
+      .right {
+        p {
+          font-family: "Poppins", sans-serif;
+          line-height: 25px;
+          font-weight: 300;
+          letter-spacing: 1px;
+        }
+      }
+    }
+    .videoSection{
+      max-width: 61%;
+      margin: 200px auto;
     }
     .feedbackSection {
       display: flex;
@@ -160,27 +193,29 @@
         width: 600px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         .userComment {
           display: flex;
           align-items: center;
           padding: 10px 0;
           // border: 1px solid lightgray;
           border-radius: 12px;
-          background-color: rgba(242, 240, 240, 0.783);
-          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          // background-color: rgba(242, 240, 240, 0.783);
+          // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           .userSide {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             img {
-              width: 34px;
-              height: 34px;
+              width: 30px;
+              height: 30px;
               border-radius: 50%;
               object-fit: cover;
             }
             .userName {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+              font-family: "Trebuchet MS", "Lucida Sans Unicode",
+                "Lucida Grande", "Lucida Sans", Arial, sans-serif;
               font-size: 18px;
             }
           }
@@ -192,6 +227,12 @@
           }
         }
       }
+    }
+    .audioButton {
+      width: 150px;
+      position: fixed;
+      bottom: 5%;
+      right: 1%;
     }
   }
 }

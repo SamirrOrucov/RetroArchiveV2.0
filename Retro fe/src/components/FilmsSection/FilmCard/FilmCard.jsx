@@ -50,16 +50,16 @@ function FilmCard({
           <div className="filmCard_container_info_bottom">
             <div className="leftSide">
               <div className="director same">
-                <span>Director:</span>
-                <p>{director}</p>
+                <span>Director: </span>
+                <p> {director}</p>
               </div>
               <div className="date same">
-                <span>Date:</span>
-                <p>{date}</p>
+                <span>Date: </span>
+                <p> {date}</p>
               </div>
               <div className="duration same">
-                <span>Duration:</span>
-                <p>{duration} min</p>
+                <span>Duration: </span>
+                <p> {duration} min</p>
               </div>
             </div>
             <div className="rightSide">

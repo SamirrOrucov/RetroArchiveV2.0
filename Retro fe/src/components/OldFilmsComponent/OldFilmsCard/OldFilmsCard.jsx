@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./OldFilmsCards.scss";
 import { WatchlistContext } from "../../../context/WatchlistContext";
 import { Link } from "react-router-dom";
-function OldFilmsCard({ year, item, image, title, desc, duration }) {
+function OldFilmsCard({  item, image, title, desc, duration, sendDataToParent  }) {
   const { addToWatchlist, watchlist, removeFromWatchlist } =
     useContext(WatchlistContext);
     const [rating, setRating] = useState(null)
@@ -25,7 +25,7 @@ function OldFilmsCard({ year, item, image, title, desc, duration }) {
         }
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       if (data && data.length > 0) {
         const roundedRating = data[0].averageRating
       const roundedRate=  parseFloat(roundedRating?.toFixed(1));
@@ -35,7 +35,13 @@ function OldFilmsCard({ year, item, image, title, desc, duration }) {
       console.error("Error fetching rating:", error);
     }
   }
-  console.log(rating);
+  function handleClick() {
+    sendDataToParent(rating);
+  }
+  useEffect(() => {
+   handleClick()
+  }, [rating])
+  
   useEffect(() => {
     fetchRating();
   }, []);

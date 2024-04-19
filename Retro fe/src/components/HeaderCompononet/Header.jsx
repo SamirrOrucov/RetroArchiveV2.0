@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import CameraIcon from "../../assets/svg/CameraIcon";
 
 function Header() {
   const [dbData, setDbData] = useState([]);
@@ -31,7 +32,7 @@ function Header() {
       <div className="header_container">
         <div className="topPart">
           <div className="upperText">
-            <h6>FILM & AZE</h6>
+          <CameraIcon  className="svgIcon"/>  <h6>FİLMS & ACTORS</h6>
           </div>
           <div className="slider">
             <Swiper
