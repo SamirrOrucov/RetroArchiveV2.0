@@ -77,14 +77,7 @@ function OldFilmsComponents() {
         <div className="oldFilms_container_bottom">
           <div className="categorySide">
             <p>CATEGORIES</p>
-            <div className="sortOrder">
-              <button onClick={() => handleSortChange(ratingsData, "asc")}>
-                Ascending
-              </button>
-              <button onClick={() => handleSortChange(ratingsData, "desc")}>
-                Descending
-              </button>
-            </div>
+         
             <div className="types">
               <button onClick={() => handleCategoryClick("All")}>ALL</button>
               <button onClick={() => handleCategoryClick("dram")}>DRAMA</button>

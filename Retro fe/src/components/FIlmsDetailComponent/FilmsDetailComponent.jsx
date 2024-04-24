@@ -92,13 +92,7 @@ function FilmsDetailComponent() {
 
   const audioRef = useRef(null);
 
-  const handlePlayPause = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  };
+
 
   return (
     <div className="filmsDetailComponent">

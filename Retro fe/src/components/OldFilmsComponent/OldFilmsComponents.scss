@@ -1,299 +1,294 @@
-.oldFilms{
-    max-width: 100vw;
-    &_container{
+.oldFilms {
+  max-width: 100vw;
+  &_container {
+    max-width: 90%;
+    margin: 0 auto;
+    &_top {
+      font-size: 137px;
+      line-height: 239px;
+      letter-spacing: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+    &_bottom {
+      margin-top: 60px;
+
+      .categorySide {
         max-width: 90%;
         margin: 0 auto;
-        &_top{
-            font-size: 137px;
-            line-height: 239px;
-            letter-spacing: 8px;
-            overflow: hidden;
-           
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        p {
+          font-size: 18px;
+          font-weight: 700;
         }
-        &_bottom{
-            margin-top: 60px;
-            
-            .categorySide{
-                padding: 40px 0;
-                display: flex;
-                justify-content: space-between;
-                p{
-                    font-size: 18px;
-                    font-weight: 700;
-                }
-                .types{
-                    display: flex;
-                    button {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border: 1px solid black;
-                        padding: 8px 15px;
-                        background-color: inherit;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        &:hover{
-                            background-color: black;
-                            color: white;
-                        }
-                      }
-                }
+        .types {
+          display: flex;
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            padding: 8px 15px;
+            background-color: inherit;
+            border-radius: 20px;
+            cursor: pointer;
+            &:hover {
+              background-color: black;
+              color: white;
             }
-            .cards{
-                display: flex;
-                flex-wrap: wrap;
-                gap: 50px;
-            }
-            .pagination{
-                max-width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 50px;
-                .container{
-                    display: flex;
-                    gap: 10px;
-                    button{
-                        border: 1px solid black;
-                        background-color: white;
-                        padding: 10px 15px;
-                        &:hover{
-                            background-color: black;
-                            color: white;
-                        }
-                    }
-                }
-
-            }
+          }
         }
+      }
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+      }
+      .pagination {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        .container {
+          display: flex;
+          gap: 10px;
+          button {
+            border: 1px solid black;
+            background-color: white;
+            padding: 10px 15px;
+            &:hover {
+              background-color: black;
+              color: white;
+            }
+          }
+        }
+      }
     }
+  }
 }
 
-@media (max-width: 575.98px) { 
-    .oldFilms{
-        max-width: 100vw;
-        &_container{
-            max-width: 90%;
-            margin: 0 auto;
-            &_top{
-                font-size:40px;
-                line-height: 90px;
-                letter-spacing: 8px;
-                overflow: hidden;
-               
+@media (max-width: 575.98px) {
+  .oldFilms {
+    max-width: 100vw;
+    &_container {
+      max-width: 90%;
+      margin: 0 auto;
+      &_top {
+        font-size: 40px;
+        line-height: 90px;
+        letter-spacing: 8px;
+        overflow: hidden;
+      }
+      &_bottom {
+        margin-top: 60px;
+
+        .categorySide {
+          padding: 40px 0;
+          display: flex;
+          justify-content: space-between;
+          p {
+            font-size: 17px;
+            font-weight: 700;
+          }
+          .types {
+            display: flex;
+            gap: 5px;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid black;
+              padding: 3px 7px;
+              font-size: 10px;
+              background-color: inherit;
+              border-radius: 20px;
+              cursor: pointer;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
             }
-            &_bottom{
-                margin-top: 60px;
-                
-                .categorySide{
-                    padding: 40px 0;
-                    display: flex;
-                    justify-content: space-between;
-                    p{
-                        font-size: 17px;
-                        font-weight: 700;
-                    }
-                    .types{
-                        display: flex;
-                        gap: 5px;
-                        button {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border: 1px solid black;
-                            padding: 3px 7px;
-                            font-size: 10px;
-                            background-color: inherit;
-                            border-radius: 20px;
-                            cursor: pointer;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                          }
-                    }
-                }
-                .cards{
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 50px;
-                }
-                .pagination{
-                    max-width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-top: 50px;
-                    .container{
-                        display: flex;
-                        gap: 10px;
-                        button{
-                            border: 1px solid black;
-                            background-color: white;
-                            padding: 10px 15px;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                        }
-                    }
-    
-                }
-            }
+          }
         }
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 50px;
+        }
+        .pagination {
+          max-width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+          .container {
+            display: flex;
+            gap: 10px;
+            button {
+              border: 1px solid black;
+              background-color: white;
+              padding: 10px 15px;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) { 
-    .oldFilms{
-        max-width: 100vw;
-        &_container{
-            max-width: 90%;
-            margin: 0 auto;
-            &_top{
-                font-size:70px;
-                line-height: 150px;
-                letter-spacing: 8px;
-                overflow: hidden;
-               
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .oldFilms {
+    max-width: 100vw;
+    &_container {
+      max-width: 90%;
+      margin: 0 auto;
+      &_top {
+        font-size: 70px;
+        line-height: 150px;
+        letter-spacing: 8px;
+        overflow: hidden;
+      }
+      &_bottom {
+        margin-top: 60px;
+
+        .categorySide {
+          padding: 40px 0;
+          display: flex;
+          justify-content: space-between;
+          p {
+            font-size: 17px;
+            font-weight: 700;
+          }
+          .types {
+            display: flex;
+            gap: 5px;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid black;
+              padding: 3px 7px;
+              font-size: 10px;
+              background-color: inherit;
+              border-radius: 20px;
+              cursor: pointer;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
             }
-            &_bottom{
-                margin-top: 60px;
-                
-                .categorySide{
-                    padding: 40px 0;
-                    display: flex;
-                    justify-content: space-between;
-                    p{
-                        font-size: 17px;
-                        font-weight: 700;
-                    }
-                    .types{
-                        display: flex;
-                        gap: 5px;
-                        button {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border: 1px solid black;
-                            padding: 3px 7px;
-                            font-size: 10px;
-                            background-color: inherit;
-                            border-radius: 20px;
-                            cursor: pointer;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                          }
-                    }
-                }
-                .cards{
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 50px;
-                }
-                .pagination{
-                    max-width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-top: 50px;
-                    .container{
-                        display: flex;
-                        gap: 10px;
-                        button{
-                            border: 1px solid black;
-                            background-color: white;
-                            padding: 10px 15px;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                        }
-                    }
-    
-                }
-            }
+          }
         }
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 50px;
+        }
+        .pagination {
+          max-width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+          .container {
+            display: flex;
+            gap: 10px;
+            button {
+              border: 1px solid black;
+              background-color: white;
+              padding: 10px 15px;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) { 
-    .oldFilms{
-        max-width: 100vw;
-        &_container{
-            max-width: 90%;
-            margin: 0 auto;
-            &_top{
-                font-size:90px;
-                line-height: 170px;
-                letter-spacing: 8px;
-                overflow: hidden;
-               
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .oldFilms {
+    max-width: 100vw;
+    &_container {
+      max-width: 90%;
+      margin: 0 auto;
+      &_top {
+        font-size: 90px;
+        line-height: 170px;
+        letter-spacing: 8px;
+        overflow: hidden;
+      }
+      &_bottom {
+        margin-top: 60px;
+
+        .categorySide {
+          padding: 40px 0;
+          display: flex;
+          justify-content: space-between;
+          p {
+            font-size: 17px;
+            font-weight: 700;
+          }
+          .types {
+            display: flex;
+            gap: 5px;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid black;
+              padding: 6px 10px;
+              font-size: 14px;
+              background-color: inherit;
+              border-radius: 20px;
+              cursor: pointer;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
             }
-            &_bottom{
-                margin-top: 60px;
-                
-                .categorySide{
-                    padding: 40px 0;
-                    display: flex;
-                    justify-content: space-between;
-                    p{
-                        font-size: 17px;
-                        font-weight: 700;
-                    }
-                    .types{
-                        display: flex;
-                        gap: 5px;
-                        button {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border: 1px solid black;
-                            padding: 6px 10px;
-                            font-size: 14px;
-                            background-color: inherit;
-                            border-radius: 20px;
-                            cursor: pointer;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                          }
-                    }
-                }
-                .cards{
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 50px;
-                }
-                .pagination{
-                    max-width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-top: 50px;
-                    .container{
-                        display: flex;
-                        gap: 10px;
-                        button{
-                            border: 1px solid black;
-                            background-color: white;
-                            padding: 10px 15px;
-                            &:hover{
-                                background-color: black;
-                                color: white;
-                            }
-                        }
-                    }
-    
-                }
-            }
+          }
         }
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 50px;
+        }
+        .pagination {
+          max-width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+          .container {
+            display: flex;
+            gap: 10px;
+            button {
+              border: 1px solid black;
+              background-color: white;
+              padding: 10px 15px;
+              &:hover {
+                background-color: black;
+                color: white;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-   
+@media (min-width: 992px) and (max-width: 1199.98px) {
 }
