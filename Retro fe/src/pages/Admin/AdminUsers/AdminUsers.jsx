@@ -6,12 +6,12 @@ function AdminUsers() {
   const [userId, setUserId] = useState([]);
 
   async function fetchUsers() {
-    const response = await fetch("http://localhost:3003/user");
+    const response = await fetch("https://retroarchivev2-0.onrender.com/user");
     const data = await response.json();
     setUserData(data);
   }
   // async function updateUser() {
-  //   const response = await fetch("http://localhost:3003/user/"+userId, {
+  //   const response = await fetch("https://retroarchivev2-0.onrender.com/user/"+userId, {
   //     method: "PUT",
   //     body: JSON.stringify({
   //       role:
@@ -27,7 +27,7 @@ function AdminUsers() {
   }, []);
 
   async function handleDelete(id) {
-    await fetch("http://localhost:3003/user/" + id, { method: "DELETE" });
+    await fetch("https://retroarchivev2-0.onrender.com/user/" + id, { method: "DELETE" });
     await fetchUsers();
   }
 

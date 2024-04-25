@@ -10,7 +10,7 @@ function EditActors() {
   const [desc, setDesc] = useState("");
 
   async function getFetch() {
-    const response = await fetch("http://localhost:3003/actor/" + id);
+    const response = await fetch("https://retroarchivev2-0.onrender.com/actor/" + id);
     const data = await response.json();
     setImage(data.image);
     setName(data.name);
@@ -21,7 +21,7 @@ function EditActors() {
     getFetch();
   }, []);
   async function updateFilm() {
-    await fetch("http://localhost:3003/actor/" + id, {
+    await fetch("https://retroarchivev2-0.onrender.com/actor/" + id, {
       method: "PUT",
       body: JSON.stringify({
         image: image,

@@ -11,7 +11,7 @@ function OldFilmsComponents() {
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
   async function fetchData() {
-    const response = await fetch("http://localhost:3003/film");
+    const response = await fetch("https://retroarchivev2-0.onrender.com/film");
     const data = await response.json();
     setDbData(data);
   }

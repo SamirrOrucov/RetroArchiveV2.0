@@ -5,7 +5,7 @@ import AdminCommentsDetail from "./AdminCommentsDetail/AdminCommentsDetail";
 function AdminComments() {
   const [filmData, setFilmData] = useState([]);
   async function fetchFilms() {
-    const response = await fetch("http://localhost:3003/film");
+    const response = await fetch("https://retroarchivev2-0.onrender.com/film");
     const data = await response.json();
     setFilmData(data);
   }

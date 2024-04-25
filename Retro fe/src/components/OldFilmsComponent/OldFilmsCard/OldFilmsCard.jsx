@@ -2,10 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import "./OldFilmsCards.scss";
 import { WatchlistContext } from "../../../context/WatchlistContext";
 import { Link } from "react-router-dom";
-function OldFilmsCard({  item, image, title, desc, duration, sendDataToParent  }) {
+function OldFilmsCard({
+  item,
+  image,
+  title,
+  desc,
+  duration,
+  sendDataToParent,
+}) {
   const { addToWatchlist, watchlist, removeFromWatchlist } =
     useContext(WatchlistContext);
-    const [rating, setRating] = useState(null)
+  const [rating, setRating] = useState(0);
 
   const { hours, minutes } = timeConvert(duration);
   function timeConvert(duration) {
@@ -13,24 +20,24 @@ function OldFilmsCard({  item, image, title, desc, duration, sendDataToParent  }
     const hours = (duration - minutes) / 60;
     return { hours, minutes };
   }
-  async function fetchRating() {
+  async function fetchRating() {  
     try {
-      const response = await fetch("http://localhost:3003/comment/avarage", {
+      const response = await fetch("https://retroarchivev2-0.onrender.com/comment/avarage", {
         method: "POST",
         body: JSON.stringify({
-          filmId: item._id
+          filmId: item._id,
         }),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       });
       const data = await response.json();
       // console.log(data);
-      if (data && data.length > 0) {
-        const roundedRating = data[0].averageRating
-      const roundedRate=  parseFloat(roundedRating?.toFixed(1));
-        setRating(roundedRate ); 
-      }
+      // if (data && data.length > 0) {
+      const roundedRating = data[0].averageRating;
+      const roundedRate = parseFloat(roundedRating?.toFixed(1));
+      setRating(roundedRate);
+      // }
     } catch (error) {
       console.error("Error fetching rating:", error);
     }
@@ -39,9 +46,9 @@ function OldFilmsCard({  item, image, title, desc, duration, sendDataToParent  }
     sendDataToParent(rating);
   }
   useEffect(() => {
-   handleClick()
-  }, [rating])
-  
+    handleClick();
+  }, [rating]);
+
   useEffect(() => {
     fetchRating();
   }, []);
@@ -52,7 +59,8 @@ function OldFilmsCard({  item, image, title, desc, duration, sendDataToParent  }
           <div className="rate">
             <p>
               <i class="fa-sharp fa-solid fa-star"></i>
-              {typeof (rating) ==="number"?rating:"0"}
+              {typeof rating=="number" ? rating : rating=="NaN" ?"0":"0"}
+            {console.log(rating)}
             </p>
           </div>
           <div className="catgory">

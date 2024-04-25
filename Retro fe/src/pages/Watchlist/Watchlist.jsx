@@ -10,7 +10,7 @@ function Watchlist() {
   async function fetchFilm() {
     try {
       const filmPromises = watchlist.map(async (filmId) => {
-        const response = await fetch(`http://localhost:3003/film/${filmId}`);
+        const response = await fetch(`https://retroarchivev2-0.onrender.com/film/${filmId}`);
 
         if (response.ok) {
           const responseData = await response.json();

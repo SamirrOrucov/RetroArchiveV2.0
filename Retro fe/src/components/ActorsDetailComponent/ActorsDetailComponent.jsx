@@ -5,7 +5,7 @@ function ActorsDetailComponent() {
   const { id } = useParams();
   const [dbData, setDbData] = useState([]);
   async function fetchData() {
-    const response = await fetch("http://localhost:3003/actor/" + id);
+    const response = await fetch("https://retroarchivev2-0.onrender.com/actor/" + id);
     const data = await response.json();
     setDbData(data);
   }

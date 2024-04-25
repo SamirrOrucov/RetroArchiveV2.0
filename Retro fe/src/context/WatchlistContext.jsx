@@ -13,7 +13,7 @@ function WatchlistProvider({ children }) {
       const index = watchlist.findIndex((x) => x === item._id);
       if (index === -1) {
         const response = await fetch(
-          `http://localhost:3003/user/${decodedToken.userId}/watchlist`,
+          `https://retroarchivev2-0.onrender.com/user/${decodedToken.userId}/watchlist`,
           {
             method: "POST",
             headers: {
@@ -44,7 +44,7 @@ function WatchlistProvider({ children }) {
   async function removeFromWatchlist(item) {
     try {
       const response = await fetch(
-        `http://localhost:3003/user/${decodedToken.userId}/watchlist`,
+        `https://retroarchivev2-0.onrender.com/user/${decodedToken.userId}/watchlist`,
         {
           method: "DELETE",
           headers: {
@@ -74,7 +74,7 @@ function WatchlistProvider({ children }) {
   async function fetchWatchlistFromDB() {
     try {
       const response = await fetch(
-        `http://localhost:3003/user/${decodedToken.userId}`
+        `https://retroarchivev2-0.onrender.com/user/${decodedToken.userId}`
       );
       if (response.ok) {
         const text = await response.text();

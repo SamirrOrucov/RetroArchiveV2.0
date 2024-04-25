@@ -33,7 +33,7 @@ function Register() {
     formData.append("password", password);
     formData.append("avatar", image);
 
-    const response = await fetch("http://localhost:3003/auth/register", {
+    const response = await fetch("https://retroarchivev2-0.onrender.com/auth/register", {
       method: "POST",
       body: formData,
     });

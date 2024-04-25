@@ -4,7 +4,7 @@ import "./Actors.scss";
 function Actors() {
   const [dbData, setDbData] = useState([]);
   async function fetchData() {
-    const response = await fetch("http://localhost:3003/actor/");
+    const response = await fetch("https://retroarchivev2-0.onrender.com/actor/");
     const data = await response.json();
     setDbData(data);
   }

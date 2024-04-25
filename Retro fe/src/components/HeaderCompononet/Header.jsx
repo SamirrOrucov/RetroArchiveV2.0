@@ -13,7 +13,7 @@ function Header() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3003/film/");
+        const response = await fetch("https://retroarchivev2-0.onrender.com/film/");
         const data = await response.json();
         setDbData(data);
       } catch (error) {
@@ -23,16 +23,16 @@ function Header() {
     fetchData();
   }, []);
 
-  const firstFilmTitle = dbData.length > 0 ? dbData[1].title : "";
-  const firstFilmimage = dbData.length > 0 ? dbData[1].image : "";
-  const firstFilmDesc = dbData.length > 0 ? dbData[1].desc : "";
+  const firstFilmTitle = dbData.length > 0 ? dbData[0].title : "";
+  const firstFilmimage = dbData.length > 0 ? dbData[0].image : "";
+  const firstFilmDesc = dbData.length > 0 ? dbData[0].desc : "";
 
   return (
     <div className="header">
       <div className="header_container">
         <div className="topPart">
           <div className="upperText">
-          <CameraIcon  className="svgIcon"/>  <h6>FİLMS & ACTORS</h6>
+          <CameraIcon  className="svgIcon"/>  <h6>FILMS & ACTORS</h6>
           </div>
           <div className="slider">
             <Swiper

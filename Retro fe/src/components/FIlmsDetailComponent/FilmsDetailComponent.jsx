@@ -19,7 +19,7 @@ function FilmsDetailComponent() {
   async function postComment() {
     try {
       if (decodedToken) {
-        const response = await fetch("http://localhost:3003/comment/", {
+        const response = await fetch("https://retroarchivev2-0.onrender.com/comment/", {
           method: "POST",
           body: JSON.stringify({
             userId: decodedToken.userId,
@@ -42,7 +42,7 @@ function FilmsDetailComponent() {
   async function fetchComments(e) {
     try {
       const response = await fetch(
-        "http://localhost:3003/film/filmWithComment/" + id
+        "https://retroarchivev2-0.onrender.com/film/filmWithComment/" + id
       );
       const data = await response.json();
       setfilmComments(data);
@@ -56,7 +56,7 @@ function FilmsDetailComponent() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3003/film/" + id);
+        const response = await fetch("https://retroarchivev2-0.onrender.com/film/" + id);
         const data = await response.json();
         setDbData(data);
       } catch (error) {
@@ -67,7 +67,7 @@ function FilmsDetailComponent() {
   }, []);
   async function fetchRating() {
     try {
-      const response = await fetch("http://localhost:3003/comment/avarage", {
+      const response = await fetch("https://retroarchivev2-0.onrender.com/comment/avarage", {
         method: "POST",
         body: JSON.stringify({
           filmId: id,

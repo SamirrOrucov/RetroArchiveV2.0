@@ -7,7 +7,7 @@ function AddActors() {
   const navigate = useNavigate();
 
   function addFilms(values) {
-    fetch("http://localhost:3003/actor/", {
+    fetch("https://retroarchivev2-0.onrender.com/actor/", {
       method: "POST",
       body: JSON.stringify(values),
       headers: { "Content-Type": "application/json" },

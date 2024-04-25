@@ -9,7 +9,7 @@ function AdminCommentsDetail() {
   async function fetchComments(e) {
     try {
       const response = await fetch(
-        "http://localhost:3003/film/filmWithComment/" + id
+        "https://retroarchivev2-0.onrender.com/film/filmWithComment/" + id
       );
       const data = await response.json();
       setfilmComments(data);
@@ -21,7 +21,7 @@ function AdminCommentsDetail() {
     fetchComments();
   }, []);
   async function handleDelete(commentId) {
-    await fetch("http://localhost:3003/comment/"+commentId , {
+    await fetch("https://retroarchivev2-0.onrender.com/comment/"+commentId , {
       method: "DELETE"
     });
     console.log(commentId);

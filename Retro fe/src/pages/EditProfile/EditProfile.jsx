@@ -7,7 +7,7 @@ function EditProfile() {
   const [image, setImage] = useState("");
   async function fetchUser() {
     const response = await fetch(
-      "http://localhost:3003/user/65cb6ae6f16975d4e4ba87e0"
+      "https://retroarchivev2-0.onrender.com/user/65cb6ae6f16975d4e4ba87e0"
     );
     const data = await response.json();
     setNickName(data.nickName);
