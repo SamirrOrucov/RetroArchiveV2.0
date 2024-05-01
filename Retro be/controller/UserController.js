@@ -38,7 +38,7 @@ export const updateUser = async (req, res) => {
     const user = UserModel.findById(id);
     const updatedUser = await UserModel.findByIdAndUpdate(id, {
       image: req.static
-        ? "http://localhost:3003/static/" + req.static
+        ? "https://retroarchivev2-0.onrender.com/static/" + req.static
         : user.image,
       nickName,
       password,

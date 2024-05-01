@@ -44,11 +44,11 @@ export const postFilm = async (req, res) => {
       date,
       category,
       audioFile: audioStorage
-      ? "http://localhost:3003/static/" +
+      ? "https://retroarchivev2-0.onrender.com/static/" +
         (audioStorage[0] ? audioStorage[0].filename : null)
       : null,
       videoFile: videoStorage
-      ? "http://localhost:3003/static/" +
+      ? "https://retroarchivev2-0.onrender.com/static/" +
         (videoStorage[0] ? videoStorage[0].filename : null)
       : null,
     });
@@ -87,11 +87,11 @@ export const updateFilm = async (req, res) => {
       date,
       category,
       audioFile: audioStorage
-      ? "http://localhost:3003/static/" +
+      ? "https://retroarchivev2-0.onrender.com/static/" +
         (audioStorage[0] ? audioStorage[0].filename : null)
       : FilmModel.audioFile,
       videoFile: videoStorage
-      ? "http://localhost:3003/static/" +
+      ? "https://retroarchivev2-0.onrender.com/static/" +
         (videoStorage[0] ? videoStorage[0].filename : null)
       : FilmModel.videoFile,
     });

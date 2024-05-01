@@ -43,7 +43,7 @@ export const userRegister = async (req, res) => {
       nickName,
       email,
       password: hash,
-      image: req.static ? "http://localhost:3003/static/" + req.static : null, // Set image field if req.static is available
+      image: req.static ? "https://retroarchivev2-0.onrender.com/static/" + req.static : null, // Set image field if req.static is available
     });
 
     await newUser.save();
