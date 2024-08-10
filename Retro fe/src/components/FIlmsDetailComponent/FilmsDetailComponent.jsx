@@ -15,22 +15,28 @@ function FilmsDetailComponent() {
   const [filmComments, setfilmComments] = useState([]);
   const navigate = useNavigate();
   const iframeRef = useRef(null);
-
+  const [isReadMore, setIsReadMore] = useState(false);
+  window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+};
   async function postComment() {
     try {
       if (decodedToken) {
-        const response = await fetch("https://retroarchivev2-0.onrender.com/comment/", {
-          method: "POST",
-          body: JSON.stringify({
-            userId: decodedToken.userId,
-            filmId: id,
-            content: message,
-            rating: rating,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://retroarchivev2-0.onrender.com/comment/",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: decodedToken.userId,
+              filmId: id,
+              content: message,
+              rating: rating,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         await fetchComments();
       } else {
         navigate("/login");
@@ -56,7 +62,9 @@ function FilmsDetailComponent() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("https://retroarchivev2-0.onrender.com/film/" + id);
+        const response = await fetch(
+          "https://retroarchivev2-0.onrender.com/film/" + id
+        );
         const data = await response.json();
         setDbData(data);
       } catch (error) {
@@ -67,15 +75,18 @@ function FilmsDetailComponent() {
   }, []);
   async function fetchRating() {
     try {
-      const response = await fetch("https://retroarchivev2-0.onrender.com/comment/avarage", {
-        method: "POST",
-        body: JSON.stringify({
-          filmId: id,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://retroarchivev2-0.onrender.com/comment/avarage",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            filmId: id,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       if (data && data.length > 0) {
         const roundedRating = data[0].averageRating;
@@ -92,7 +103,11 @@ function FilmsDetailComponent() {
 
   const audioRef = useRef(null);
 
-
+  const handleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
+  const w = window.innerWidth;
+  console.log("w", w);
 
   return (
     <div className="filmsDetailComponent">
@@ -171,14 +186,32 @@ function FilmsDetailComponent() {
             </div>
           </div>
           <div className="right">
-            <p>{dbData.desc}</p>
-          </div> 
+            <p>
+              {isReadMore
+                ? 
+                dbData?.desc
+                : w < 500
+                ? dbData?.desc?.slice(0, 500) + ".."
+                : dbData?.desc?.slice(0, 800)}
+            </p>
+            <div className="readMore">
+              <span onClick={() => handleReadMore()}>
+                {
+                dbData?.desc?.length>800?
+                isReadMore ? <span>Read less</span> : <span>Read more</span>:null}
+              </span>
+            </div>
+          </div>
         </div>
-        {
-          dbData.audioFile?
-        <div className="videoSection">
-          <video src={dbData.videoFile} controls style={{width:"915px"}}></video>
-        </div>:null}
+        {dbData.audioFile ? (
+          <div className="videoSection">
+            <video
+              src={dbData.videoFile}
+              controls
+              className="videoFrame"
+            ></video>
+          </div>
+        ) : null}
         <div className="feedbackSection">
           <p className="feedback">
             FEEDBACK <i className="fa-solid fa-arrow-right"></i>
@@ -232,25 +265,24 @@ function FilmsDetailComponent() {
             ))}
           </div>
         </div>
-       {
-          dbData.audioFile?<div className="audioButton" >
-          <iframe
-            name="newframe"
-            frameborder="0"
-            height="53"
-            width="70%"
-            style={{
-              borderRadius: "30px",
-              boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
-            }}
-            ref={audioRef}
-            src={dbData.audioFile}
-            allow="autoplay"
-            className="audio"
-          />
-        </div>:null
-        }
-        
+        {dbData.audioFile ? (
+          <div className="audioButton">
+            <iframe
+              name="newframe"
+              frameborder="0"
+              height="53"
+              width="70%"
+              style={{
+                borderRadius: "30px",
+                boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
+              }}
+              ref={audioRef}
+              src={dbData.audioFile}
+              allow="autoplay"
+              className="audio"
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );

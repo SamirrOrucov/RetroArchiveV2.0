@@ -32,8 +32,7 @@ function OldFilmsCard({
         },
       });
       const data = await response.json();
-      // console.log(data);
-      // if (data && data.length > 0) {
+       // if (data && data.length > 0) {
       const roundedRating = data[0].averageRating;
       const roundedRate = parseFloat(roundedRating?.toFixed(1));
       setRating(roundedRate);

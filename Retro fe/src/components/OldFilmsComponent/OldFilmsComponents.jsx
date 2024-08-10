@@ -20,6 +20,9 @@ function OldFilmsComponents() {
     setRatingsData(data);
     console.log(data);
   }
+  window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+};
   useEffect(() => {
     fetchData();
   }, []);

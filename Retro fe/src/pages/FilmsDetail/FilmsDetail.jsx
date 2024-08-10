@@ -1,8 +1,11 @@
 import React from "react";
 import FilmsDetailComponent from "../../components/FIlmsDetailComponent/FilmsDetailComponent";
 import { Link } from "react-router-dom";
-import "./FilmsDetail.scss"
+import "./FilmsDetail.scss";
 function FilmsDetail() {
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="filmsDetail">
       <div className="filmsDetail_container">

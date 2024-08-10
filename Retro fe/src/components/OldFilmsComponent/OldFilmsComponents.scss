@@ -90,6 +90,8 @@
           padding: 40px 0;
           display: flex;
           justify-content: space-between;
+          flex-direction: column;
+          text-align: left;
           p {
             font-size: 17px;
             font-weight: 700;
@@ -97,6 +99,8 @@
           .types {
             display: flex;
             gap: 5px;
+            margin-top: 40px;
+            // justify-content: end;
             button {
               display: flex;
               align-items: center;

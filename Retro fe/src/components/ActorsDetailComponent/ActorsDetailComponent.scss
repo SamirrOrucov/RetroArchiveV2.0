@@ -33,3 +33,45 @@
     }
   }
 }
+@media (max-width: 575.98px) {
+  
+  .actorsDetailComponent {
+    max-width: 100%;
+    &_container {
+      display: flex;
+      max-width: 60%;
+      flex-direction: column;
+      margin: 0 ;
+      gap: 90px;
+      .image {
+        max-width: 100px;
+        max-height: 100px;
+        
+        img {
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+      .info {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .name {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        .desc{
+          max-width: 170%;
+          width: 170%;
+          font-size: 14px;
+          line-height: 20px;
+
+          font-weight: 400;
+        }
+      }
+    }
+  } 
+}

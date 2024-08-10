@@ -9,6 +9,7 @@ function ActorsSection() {
     const data = await response.json();
     setDbData(data);
   }
+  
   useEffect(() => {
     fetchData();
   }, []);
