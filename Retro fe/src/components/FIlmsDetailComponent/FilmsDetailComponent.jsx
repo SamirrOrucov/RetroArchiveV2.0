@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import "./FilmsDetailComponent.scss";
 import { FaStar } from "react-icons/fa";
 import { UserTokenContext } from "../../context/UserTokenContext";
+import {  message as antMessage } from "antd";
 
 function FilmsDetailComponent() {
   const { id } = useParams();
@@ -16,14 +17,41 @@ function FilmsDetailComponent() {
   const navigate = useNavigate();
   const iframeRef = useRef(null);
   const [isReadMore, setIsReadMore] = useState(false);
-  window.onbeforeunload = function () {
-    window.scrollTo(0,0);
-};
+ 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+  }, [])
+  useEffect(() => {
+    fetchComments();
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          "https://retroarchivev2-0.onrender.com/film/" + id
+        );
+        const data = await response.json();
+        setDbData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
+  useEffect(() => {
+    fetchRating();
+  }, []);
+
+  const resetCommentSection = () => {
+    setMessage("");
+    setRating(null);
+  };
   async function postComment() {
     try {
       if (decodedToken) {
         const response = await fetch(
-          "https://retroarchivev2-0.onrender.com/comment/",
+          import.meta.env.VITE_BASE_URL + "comment/",
           {
             method: "POST",
             body: JSON.stringify({
@@ -37,6 +65,8 @@ function FilmsDetailComponent() {
             },
           }
         );
+        successMessage()
+        resetCommentSection();
         await fetchComments();
       } else {
         navigate("/login");
@@ -56,23 +86,7 @@ function FilmsDetailComponent() {
       console.error("Error fetching data:", error);
     }
   }
-  useEffect(() => {
-    fetchComments();
-  }, []);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          "https://retroarchivev2-0.onrender.com/film/" + id
-        );
-        const data = await response.json();
-        setDbData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchData();
-  }, []);
+
   async function fetchRating() {
     try {
       const response = await fetch(
@@ -97,19 +111,20 @@ function FilmsDetailComponent() {
       console.error("Error fetching rating:", error);
     }
   }
-  useEffect(() => {
-    fetchRating();
-  }, []);
+   const successMessage=()=>{
+    antMessage.success("Şərhiniz uğurla əlavə olundu")
 
+   }
   const audioRef = useRef(null);
 
   const handleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
   const w = window.innerWidth;
-  console.log("w", w);
-
+ 
   return (
+ 
+  
     <div className="filmsDetailComponent">
       <div className="filmsDetailComponent_container">
         <div className="top">
@@ -188,17 +203,20 @@ function FilmsDetailComponent() {
           <div className="right">
             <p>
               {isReadMore
-                ? 
-                dbData?.desc
+                ? dbData?.desc
                 : w < 500
                 ? dbData?.desc?.slice(0, 500) + ".."
                 : dbData?.desc?.slice(0, 800)}
             </p>
             <div className="readMore">
               <span onClick={() => handleReadMore()}>
-                {
-                dbData?.desc?.length>800?
-                isReadMore ? <span>Read less</span> : <span>Read more</span>:null}
+                {dbData?.desc?.length > 800 ? (
+                  isReadMore ? (
+                    <span>Read less</span>
+                  ) : (
+                    <span>Read more</span>
+                  )
+                ) : null}
               </span>
             </div>
           </div>
@@ -228,7 +246,7 @@ function FilmsDetailComponent() {
                       name="rating"
                       id=""
                       onClick={() => setRating(ratingValue)}
-                      value={ratingValue}
+                      value={rating}
                     />
                     <FaStar
                       className="str"
@@ -249,6 +267,7 @@ function FilmsDetailComponent() {
               type="text"
               name=""
               id=""
+              value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
             <button onClick={() => postComment()}>SUBMIT</button>
@@ -285,6 +304,7 @@ function FilmsDetailComponent() {
         ) : null}
       </div>
     </div>
+ 
   );
 }
 

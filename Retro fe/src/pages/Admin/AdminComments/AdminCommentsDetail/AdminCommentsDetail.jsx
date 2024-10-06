@@ -41,9 +41,9 @@ function AdminCommentsDetail() {
           </thead>
           <tbody>
             {filmComments.map((item) => (
-              <tr key={item._id}>
-                <td>{item.content}</td>
-                <td>{item.userId.nickName} </td>
+              <tr key={item?._id}>
+                <td>{item?.content}</td>
+                <td>{item?.userId?.nickName} </td>
                 <td>{item?.createdAt}</td>
                 <td>
                   <button onClick={() => handleDelete(item._id)}>Delete</button>

@@ -247,6 +247,9 @@
     }
   }
 }
+.ant-message-success .anticon {
+  color: black !important;  /* Change the color of the success icon */
+}
 @media (max-width: 575.98px) {
   .filmsDetailComponent {
     max-width: 100vw;

@@ -63,20 +63,22 @@ function Navbar() {
           <NavLink to={"/actors"} onClick={() => setIsOpen(!isOpen)}>
             Actors
           </NavLink>
-          <div className="icons">
-            <Link>
-              <i className="fa-brands fa-instagram"></i>
-            </Link>
-            <Link>
-              <i className="fa-brands fa-x-twitter"></i>
-            </Link>
-            <Link>
-              <i className="fa-brands fa-youtube"></i>
-            </Link>
-            <Link>
-              <i className="fa-solid fa-rss"></i>
-            </Link>
-          </div>
+        
+          <NavLink to={"/watchlist"}>
+            <i className="fa-solid fa-bookmark"></i> Watchlist
+          </NavLink>
+  
+          {decodedToken ? (
+            <>
+             <NavLink to={"/login"} onClick={logout}>
+              Log out <i className="fa-solid fa-user"></i>
+            </NavLink>
+             </>
+          ) : (
+            <NavLink to={"/login"}>
+              Log in <i className="fa-solid fa-user"></i>
+            </NavLink>
+          )}
         </div>
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
           <i className="fa-light fa-bars"></i>
